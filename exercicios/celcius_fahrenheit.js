@@ -8,7 +8,7 @@
  * F = C * 9/5 + 32 -> celcius para fahrenheit
  */
 
-let value = "50z"
+let value = "50f"
 
 function conversion(value) {
     
