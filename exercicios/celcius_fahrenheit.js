@@ -8,19 +8,25 @@
  * F = C * 9/5 + 32 -> celcius para fahrenheit
  */
 
-let value = "212F"
+let value = "50z"
 
 function conversion(value) {
-    let valueArray = Array.from(value)
+    
+    const valueArray = Array.from(value)//transformando o value em um array
 
     //verificando se tem os caracteres
-    let convertingFromCelsius = valueArray.includes('C')
-    let convertingFromFahrenheit = valueArray.includes('F')
+    const convertingFromCelsius = valueArray.includes('C')
+    const convertingFromFahrenheit = valueArray.includes('F')
 
     valueArray.pop()//Removendo os caracteres de texto
-    let newValue = Number(valueArray.join(''))//Juntando os caracteres e transformando em number
+    const newValue = Number(valueArray.join(''))//Juntando os caracteres e transformando em number
     
-    let convertedValue
+    //verificando se é um número
+    if(isNaN(newValue)) {
+        return "Use valores validos!"
+    }
+
+    let convertedValue;
 
     if(convertingFromCelsius) {
 
@@ -31,9 +37,11 @@ function conversion(value) {
         return convertedValue = ((newValue - 32) * 5/9)+'C'
 
     }else {
-        return convertedValue = "Grau não atribuido!"
+        return convertedValue = "Grau não identificado!"
     }
 
 }
 
-console.log(conversion(value));
+const TemperatureConversionResult = conversion(value.toUpperCase())
+
+console.log(TemperatureConversionResult)
